@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.75rem;
+        --background: 0.98 0.02 45;
+        --foreground: 0.15 0.05 25;
+        --card: 1 0 0;
+        --card-foreground: 0.15 0.05 25;
+        --popover: 1 0 0;
+        --popover-foreground: 0.15 0.05 25;
+        --primary: 0.25 0.15 25;
+        --primary-foreground: 0.98 0.02 45;
+        --secondary: 0.95 0.02 45;
+        --secondary-foreground: 0.25 0.15 25;
+        --muted: 0.95 0.02 45;
+        --muted-foreground: 0.55 0.05 25;
+        --accent: 0.92 0.05 45;
+        --accent-foreground: 0.25 0.15 25;
+        --destructive: 0.65 0.25 15;
+        --destructive-foreground: 0.98 0.02 45;
+        --border: 0.88 0.03 45;
+        --input: 0.88 0.03 45;
+        --ring: 0.35 0.15 25;
+        --chart-1: 0.55 0.20 120;
+        --chart-2: 0.60 0.15 200;
+        --chart-3: 0.45 0.12 280;
+        --chart-4: 0.70 0.18 60;
+        --chart-5: 0.65 0.16 320;
+        --sidebar: 0.98 0.02 45;
+        --sidebar-foreground: 0.15 0.05 25;
+        --sidebar-primary: 0.25 0.15 25;
+        --sidebar-primary-foreground: 0.98 0.02 45;
+        --sidebar-accent: 0.95 0.02 45;
+        --sidebar-accent-foreground: 0.25 0.15 25;
+        --sidebar-border: 0.88 0.03 45;
+        --sidebar-ring: 0.35 0.15 25;
+    }
+
+    .dark {
+        --background: 0.12 0.05 25;
+        --foreground: 0.95 0.02 45;
+        --card: 0.18 0.05 25;
+        --card-foreground: 0.95 0.02 45;
+        --popover: 0.22 0.05 25;
+        --popover-foreground: 0.95 0.02 45;
+        --primary: 0.85 0.03 45;
+        --primary-foreground: 0.18 0.05 25;
+        --secondary: 0.22 0.05 25;
+        --secondary-foreground: 0.95 0.02 45;
+        --muted: 0.22 0.05 25;
+        --muted-foreground: 0.65 0.03 45;
+        --accent: 0.28 0.05 25;
+        --accent-foreground: 0.95 0.02 45;
+        --destructive: 0.70 0.20 15;
+        --destructive-foreground: 0.18 0.05 25;
+        --border: 0.28 0.05 25;
+        --input: 0.28 0.05 25;
+        --ring: 0.65 0.03 45;
+        --chart-1: 0.45 0.25 240;
+        --chart-2: 0.60 0.18 180;
+        --chart-3: 0.70 0.16 60;
+        --chart-4: 0.55 0.22 300;
+        --chart-5: 0.65 0.20 20;
+        --sidebar: 0.18 0.05 25;
+        --sidebar-foreground: 0.95 0.02 45;
+        --sidebar-primary: 0.45 0.25 240;
+        --sidebar-primary-foreground: 0.95 0.02 45;
+        --sidebar-accent: 0.22 0.05 25;
+        --sidebar-accent-foreground: 0.95 0.02 45;
+        --sidebar-border: 0.28 0.05 25;
+        --sidebar-ring: 0.55 0.03 45;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground font-sans antialiased;
+    }
+
+    /* Custom scrollbar styling */
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-muted/30;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-muted-foreground/30 rounded-full;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-muted-foreground/50;
+    }
+
+    /* Smooth transitions for theme switching */
+    * {
+        transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+}
+
+/* Custom animations */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+}
+
+/* File upload hover effects */
+.upload-card:hover {
+    @apply border-primary/50 bg-primary/5;
+}
+
+/* Canvas styling for crisp hexagram rendering */
+canvas {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
